@@ -37,7 +37,7 @@
     <string name="message_enter_valid_phone">Please enter valid phone</string>
 
     <!--Titles-->
-    <string name="title_new_mvvm_base_project">New MVVM Base Project</string>
+    <string name="title_new_mvvm_kotlin_base_project">Kotlin MVVM Base Project</string>
     <string name="action_submit">Submit</string>
     <string name="title_home">Home</string>
     <string name="action_logout">Logout</string>
