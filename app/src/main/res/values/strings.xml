@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">BaseProjectKotlinMVVM</string>
+
+    <!--Actions-->
+    <string name="action_settings">Settings</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_signup">Sign Up</string>
+    <string name="action_login">LogIn</string>
+    <string name="action_forgot_password">Forgot Password?</string>
+
+
+    <!--Permissions-->
+    <string name="enable_storage_permission">For uploading, you have to enable storage permission</string>
+    <string name="enable_camera_permission">For uploading, you have to enable camera permission</string>
+    <string name="enable_storage_camera_permission">For uploading, you have to enable storage and camera permission</string>
+
+    <!--Hints-->
+    <string name="hint_password">Password</string>
+    <string name="hint_number">Number</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_name">Name</string>
+
+    <!--Messages-->
+    <string name="message_something_went_wrong">Something went wrong</string>
+    <string name="message_no_internet">No internet</string>
+    <string name="message_session_expired">Session expired</string>
+    <string name="message_no_data_found">No data found</string>
+    <string name="message_account_blocked">Account blocked</string>
+    <string name="message_enter_email">Please enter email</string>
+    <string name="message_enter_valid_email">Please enter valid email</string>
+    <string name="message_enter_password">Please enter password</string>
+    <string name="message_enter_valid_password">Please enter valid password</string>
+    <string name="message_login_success">Login Success</string>
+    <string name="message_enter_name">Please enter name</string>
+    <string name="message_enter_valid_name">Please enter valid name</string>
+    <string name="message_enter_phone">Please enter phone</string>
+    <string name="message_enter_valid_phone">Please enter valid phone</string>
+
+    <!--Titles-->
+    <string name="title_new_mvvm_base_project">New MVVM Base Project</string>
+    <string name="action_submit">Submit</string>
+    <string name="title_home">Home</string>
+    <string name="action_logout">Logout</string>
+
+</resources>
