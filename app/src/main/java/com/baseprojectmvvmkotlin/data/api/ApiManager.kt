@@ -18,14 +18,14 @@ import java.util.concurrent.TimeUnit
 
 object ApiManager {
     private val apiClient: ApiClient
-    private val loginApiClient: ApiClient
+    private val registeredApiClient: ApiClient
 
     init {
-        apiClient = retrofitService
-        loginApiClient = loginService
+        apiClient = httpClient
+        registeredApiClient = httpRegisteredClient
     }
 
-    private val retrofitService: ApiClient
+    private val httpClient: ApiClient
         get() {
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
@@ -36,12 +36,12 @@ object ApiManager {
             return retrofit.create(ApiClient::class.java)
         }
 
-    private val loginService: ApiClient
+    private val httpRegisteredClient: ApiClient
         get() {
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(BuildConfig.API_BASE_URL)
-                .client(getLoginHttpClient().build())
+                .client(getHttpRegisteredClient().build())
                 .build()
 
             return retrofit.create(ApiClient::class.java)
@@ -74,7 +74,7 @@ object ApiManager {
      *
      * @return OkHttpClient object
      */
-    private fun getLoginHttpClient(): OkHttpClient.Builder {
+    private fun getHttpRegisteredClient(): OkHttpClient.Builder {
         return OkHttpClient.Builder()
             .addInterceptor { chain ->
                 val original = chain.request()
@@ -108,6 +108,6 @@ object ApiManager {
     }
 
     fun hitLogoutApi(): Call<BaseResponse<Any>> {
-        return loginApiClient.logOut()
+        return registeredApiClient.logOut()
     }
 }
