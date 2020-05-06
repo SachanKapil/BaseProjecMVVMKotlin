@@ -12,7 +12,7 @@ object DialogUtils {
         val dialog = Dialog(context)
         dialog.window?.let {
             it.requestFeature(Window.FEATURE_NO_TITLE)
-            it.setBackgroundDrawable(null)
+            it.setBackgroundDrawableResource(android.R.color.transparent)
             it.setLayout(
                 FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT
             )

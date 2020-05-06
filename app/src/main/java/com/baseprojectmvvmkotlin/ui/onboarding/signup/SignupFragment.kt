@@ -6,11 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.baseprojectmvvmkotlin.R
 import com.baseprojectmvvmkotlin.base.BaseFragment
-import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_sign_up.*
 
 
@@ -49,7 +47,7 @@ class SignupFragment : BaseFragment(), View.OnClickListener {
     }
 
     private fun initViewModel() {
-        signUpViewModel = ViewModelProviders.of(this).get(SignupViewModel::class.java)
+        signUpViewModel = ViewModelProvider(this).get(SignupViewModel::class.java)
     }
 
     private fun initListener() {
@@ -60,7 +58,7 @@ class SignupFragment : BaseFragment(), View.OnClickListener {
     private fun initObservers() {
         //observing login live data
         signUpViewModel.getSignUpLiveData()
-            .observe(this, Observer { wrappedResponseEvent ->
+            .observe(viewLifecycleOwner, Observer { wrappedResponseEvent ->
                 if (wrappedResponseEvent != null && !wrappedResponseEvent.isAlreadyHandled) {
                     hideProgressDialog()
                     val objectWrappedResponse = wrappedResponseEvent.getContent()

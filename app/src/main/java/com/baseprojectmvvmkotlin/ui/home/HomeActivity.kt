@@ -3,7 +3,7 @@ package com.baseprojectmvvmkotlin.ui.home
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.baseprojectmvvmkotlin.R
 import com.baseprojectmvvmkotlin.base.BaseActivity
 import com.baseprojectmvvmkotlin.data.DataManager
@@ -22,7 +22,7 @@ class HomeActivity : BaseActivity() {
     }
 
     private fun initViewModel() {
-        homeViewModel = ViewModelProviders.of(this)[HomeViewModel::class.java]
+        homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
     }
 
     private fun setUpUi() {

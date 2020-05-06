@@ -59,7 +59,7 @@ object ApiManager {
                 val requestBuilder: Request.Builder
                 requestBuilder = original.newBuilder()
                     .header("Accept", "application/json")
-                    .method(original.method(), original.body())
+                    .method(original.method, original.body)
                 val request = requestBuilder.build()
                 val response = chain.proceed(request)
                 response
@@ -82,7 +82,7 @@ object ApiManager {
                 requestBuilder = original.newBuilder()
                     .header("Authorization", "Bearer " + DataManager.getAccessToken())
                     .header("Accept", "application/json")
-                    .method(original.method(), original.body())
+                    .method(original.method, original.body)
                 val request = requestBuilder.build()
                 val response = chain.proceed(request)
                 response
@@ -93,10 +93,17 @@ object ApiManager {
     }
 
     private fun getLoggingInterceptor(): HttpLoggingInterceptor {
-        return if (BuildConfig.DEBUG) HttpLoggingInterceptor(CustomHttpLogger())
-            .setLevel(HttpLoggingInterceptor.Level.BODY) else HttpLoggingInterceptor().setLevel(
-            HttpLoggingInterceptor.Level.NONE
-        )
+        return if (BuildConfig.DEBUG) {
+            val httpLoggingInterceptor = HttpLoggingInterceptor(CustomHttpLogger())
+            httpLoggingInterceptor.apply {
+                httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+            }
+        } else {
+            val httpLoggingInterceptor = HttpLoggingInterceptor()
+            httpLoggingInterceptor.apply {
+                httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.NONE
+            }
+        }
     }
 
     fun hitLoginApi(user: User): Call<BaseResponse<User>> {

@@ -152,8 +152,8 @@ open class BaseActivity : AppCompatActivity() {
     fun showProgressDialog() {
         if (mProgressDialog == null) {
             mProgressDialog = DialogUtils.showLoader(this)
-            (mProgressDialog as Dialog).show()
         }
+        (mProgressDialog as Dialog).show()
     }
 
     fun hideProgressDialog() {
